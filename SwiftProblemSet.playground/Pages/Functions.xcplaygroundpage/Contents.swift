@@ -5,9 +5,10 @@
 //: ## Functions 
 //: ### Exercise 14
 //: The function `emojiLove` should take two `String` parameters and use them to print a `String` with  the format "stringParameterOne ❤️ stringParameterTwo".
-func emojiLove(/* add parameters here */) {
-    /* add function implementation here */
+func emojiLove(stringOne: String, stringTwo: String) {
+    print("\(stringOne) ❤️ \(stringTwo)")
 }
+emojiLove(stringOne: "I", stringTwo: "Danny")
 
 /* Example Function Call
  
@@ -20,11 +21,15 @@ func emojiLove(/* add parameters here */) {
 
 //: ### Exercise 15
 //: The function `median` should take three `Int` parameters and return the `Int` value in the middle.
-func median(/* add parameters here */) /* define the return type */ {
-    /* add function implementation here */
+func median (num1: Int, num2: Int, num3: Int) -> Int {
+        let medianNumbers = [num1, num2, num3]
+        let sortMedianNumbers = medianNumbers.sorted()
+        let median = sortMedianNumbers[1]
+        return median
 }
 
-/* Example Function Call
+
+
  
  median(num1: 1, num2: 5, num3: 6) // 5
  median(num1: 2, num2: 1, num3: 4) // 2
@@ -34,7 +39,7 @@ func median(/* add parameters here */) /* define the return type */ {
  median(num1: 2, num2: 3, num3: 1) // 2
  median(num1: 2, num2: 2, num3: 1) // 2
  
- */
+
 
 /*:
  ### Exercise 16
@@ -46,9 +51,18 @@ func median(/* add parameters here */) /* define the return type */ {
  
  **Note**: It is assumed that the input string is given in English.
  */
-func beginsWithVowel(/* add parameters here */) /* define the return type */ {
-    /* add function implementation here */
+func beginsWithVowel(word: String) -> Bool {
+    if word == "" {
+        return false
+    } else {
+        var wordWithVowel = word.lowercased()
+        if (wordWithVowel.characters[wordWithVowel.startIndex] == "a") || (wordWithVowel.characters[wordWithVowel.startIndex] == "e") || (wordWithVowel.characters[wordWithVowel.startIndex] == "i") || (wordWithVowel.characters[wordWithVowel.startIndex] == "o") || (wordWithVowel.characters[wordWithVowel.startIndex] == "u") { return true }
+        else {
+            return false
+        }
 }
+
+beginsWithVowel(word: "eat")
 
 /* Example Function Call
  
@@ -71,8 +85,12 @@ func beginsWithVowel(/* add parameters here */) /* define the return type */ {
  
  **Hint**: Re-use the `beginsWithVowel` function.
  */
-func funWithWords(/* add parameters here */) /* define the return type */ {
-    /* add function implementation here */
+func funWithWords(funStrings: String) -> String {
+    if beginsWithVowel(word: funStrings) {
+        return funStrings.uppercased()
+    } else {
+        return funStrings.lowercased()
+    }
 }
 
 /* Example Function Call
