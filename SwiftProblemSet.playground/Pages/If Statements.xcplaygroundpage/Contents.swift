@@ -64,19 +64,22 @@ func release() {
     print("\(game) is now ready for sale.")
 }
 
-func checkForRelease(bugs: Int, music: Bool, levels: Int) {
+func checkForRelease(bugs: Int, hasMusic: Bool, numberOfLevels: Int) {
     if bugs < 10 && hasMusic == true && numberOfLevels > 5 {
         release()
-    } else if bugs >= 10 && hasMusic == true && numberOfLevels > 5 {
-        print("You have \(bugs) bugs. The most you can have is 10!")
-    } else if bugs < 10 && hasMusic == false && numberOfLevels > 5 {
-        print("You need to add music to your game")
-    } else if bugs < 10 && hasMusic == true && numberOfLevels < 5 {
-        print("There's only have \(numberOfLevels) levels. You need more than 5 levels")
+    }
+    if bugs >= 10 {
+        print("You have to many bugs")
+    }
+    if hasMusic != true {
+        print("You need to add music")
+    }
+    if numberOfLevels <= 5 {
+        print("You need to add more levels")
     }
 }
 
-checkForRelease(bugs: bugs, music: hasMusic, levels: numberOfLevels)
+checkForRelease(bugs: 9, hasMusic: true, numberOfLevels: 6)
 
 /*:
  ### Exercise 13
@@ -95,8 +98,8 @@ checkForRelease(bugs: bugs, music: hasMusic, levels: numberOfLevels)
  - Write your if statement in the function, func `checkTrainingStatus(name: canFinishBike: canFinishRun:)`.
  */
 let name: String = "Teresa"
-var canFinishBike: Bool = true
-var canFinishRun: Bool = true
+var canFinishBike: Bool = false
+var canFinishRun: Bool = false
 
 func checkTrainingStatus(name: String, bike: Bool, run: Bool) {
     //TODO: Add your if, else-if statement here!
@@ -107,7 +110,7 @@ func checkTrainingStatus(name: String, bike: Bool, run: Bool) {
     } else if canFinishBike == true && canFinishRun != true {
         print("Sorry \(name). You need to run more.")
     } else {
-        print("\(name), you have so much work to do!")
+        print("\(name), you need to bike AND run more!")
     }
 }
 

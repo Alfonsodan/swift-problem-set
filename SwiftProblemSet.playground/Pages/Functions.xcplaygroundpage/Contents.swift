@@ -60,8 +60,9 @@ func beginsWithVowel(word: String) -> Bool {
         else {
             return false
         }
+    }
 }
-
+    
 beginsWithVowel(word: "eat")
 
 /* Example Function Call
